@@ -1,0 +1,8 @@
+import requests as rq
+city = str(input('Пожалуйста, введите название города: \n'))
+url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&lang=ru&appid=7f66bd19f0d84b0c22953133aaf8d751'
+r = rq.get(url).json()
+temp = round(r['main']['temp'])
+wind = round(r['wind']['speed'])
+feels = round(r['main']['feels_like'])
+print(f' На данный момент температура {temp} градусов\n Ощущается как {feels}\n Скорость ветра: {wind} м/с')
