@@ -1,0 +1,13 @@
+import inspect
+def introspection_info(obj):
+    info = {'type': type(obj), 'attributes': [], 'methods': [], 'module': inspect.getmodule(introspection_info)}
+    for i in dir(obj):
+        if i.endswith('__'):
+            info['methods'].append(i)
+        else:
+            info['attributes'].append(i)
+    return info
+
+
+number_info = introspection_info('Name')
+print(number_info)
